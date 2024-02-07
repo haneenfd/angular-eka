@@ -1,0 +1,34 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers">{{header}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of dataRow">
+      <td>
+        <div *ngIf="!row.isEdit">{{row.firstName}}</div>
+        <div *ngIf="row.isEdit"><input  pattern="[A-Za-z]+" #firstName="ngModel" class="form-control" [class.is-invalid]="firstName.invalid" required type="text" [(ngModel)]="row.firstName"></div>
+      </td>
+      <td>
+        <div *ngIf="!row.isEdit">{{row.secondName}}</div>
+        <div *ngIf="row.isEdit"><input   pattern="[A-Za-z]+" #secondName="ngModel" type="text"  class="form-control" [class.is-invalid]="secondName.invalid" required [(ngModel)]="row.secondName"></div>
+      </td>
+      <td>
+        <div *ngIf="!row.isEdit">{{row.lastName}}</div>
+        <div *ngIf="row.isEdit"><input  pattern="[A-Za-z]+" class="form-control" [class.is-invalid]="lastName.invalid" #lastName="ngModel" type="text" required="" [(ngModel)]="row.lastName"></div>
+      </td>
+      <td>
+        <div *ngIf="!row.isEdit">{{row.age}} </div>
+        <div *ngIf="row.isEdit"><input class="form-control" [class.is-invalid]="age.invalid" #age="ngModel" type="number" min="1" [(ngModel)]="row.age"></div>
+      </td>
+
+      <td>
+        <button *ngIf="!row.isEdit" class="btn btn-danger" (click)="onDelete(row.id)">Delete</button>
+        <button *ngIf="!row.isEdit" class="btn btn-primary" (click)="onUpdate(row)">Update</button>
+        <button *ngIf="row.isEdit" class="btn btn-danger" (click)="onCancel(row)">cancel</button>
+        <button *ngIf="row.isEdit" [disabled]="!isChanged(row)||!isValid(row)" class="btn btn-primary" (click)="onSave(row)">save</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

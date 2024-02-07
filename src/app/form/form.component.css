@@ -1,0 +1,29 @@
+  .form-container {
+    text-align: center; 
+    border: 1px solid #ccc;
+  padding: 20px; 
+  border-radius: 5px;
+
+  }
+  
+  .form-group {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top; 
+    text-align: left; 
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px; 
+  }
+  .button-group {
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 40px;
+  }
+  button{
+    background-color: #2a3d6c;
+    color: aliceblue;
+  }
+  

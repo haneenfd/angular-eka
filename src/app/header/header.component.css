@@ -1,0 +1,26 @@
+/* table.component.css */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #2a3d6c;
+    color: aliceblue;
+  }
+  
+  button {
+    padding: 5px 10px;
+    margin-right: 5px;
+  } 
+  
+
+  
