@@ -21,7 +21,7 @@ export class IndexedDBService {
     return this.db.table('user').add(form);
   }
   getItems() {
-    return this.db.table('user').toArray(); // Use table method to access object store
+    return this.db.table('user').toArray(); 
   }
 
   deleteItem(id: number) {
