@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IndexedDBService } from "../indexed-db.service";
 import { DataService } from "../data.service";
 import { Subscription } from 'rxjs';
+import { Console } from "node:console";
 interface data {
   id: number;
   firstName: string;
@@ -66,7 +67,7 @@ export class headerComponent implements OnInit, OnDestroy {
   }
   async onSave(row: data) {
     try {
-      await this.indexedDBService.updateItem(row.id, row);
+      await this.indexedDBService.updateItem(row.id, {firstName: row.firstName,secondName:row.secondName ,lastName: row.lastName, age:row.age});
       row.isEdit = false;
     } catch (error) {
       console.error(error);
@@ -83,7 +84,6 @@ export class headerComponent implements OnInit, OnDestroy {
       row.age && row.age >= 1;
   }
   isChanged(row: data): boolean {
-    console.log(row);
     return row.firstName !== row.dataCopy.firstName ||
       row.lastName !== row.dataCopy.lastName ||
       row.age !== row.dataCopy.age ||
